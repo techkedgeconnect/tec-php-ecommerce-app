@@ -103,7 +103,7 @@
             <div class="row it_works">
               <?php
 
-                        $link = mysqli_connect('db', 'teccode', 'teccode123', 'ecomdb');
+                        $link = mysqli_connect('172-31-43-132', 'teccode', 'teccode123', 'ecomdb');
 
                         if ($link) {
                         $res = mysqli_query($link, "select * from products;");
