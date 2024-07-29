@@ -37,12 +37,12 @@ sudo firewall-cmd --reload
 ```
 $ mysql
 MariaDB > CREATE DATABASE ecomdb;
-MariaDB > CREATE USER 'ecomuser'@'localhost' IDENTIFIED BY 'ecompassword';
-MariaDB > GRANT ALL PRIVILEGES ON *.* TO 'ecomuser'@'localhost';
+MariaDB > CREATE USER 'teccode'@'localhost' IDENTIFIED BY 'teccode123';
+MariaDB > GRANT ALL PRIVILEGES ON *.* TO 'teccode'@'localhost';
 MariaDB > FLUSH PRIVILEGES;
 ```
 
-> ON a multi-node setup remember to provide the IP address of the web server here: `'ecomuser'@'web-server-ip'`
+> ON a multi-node setup remember to provide the IP address of the web server here: `'teccode'@'web-server-ip'`
 
 4. Load Product Inventory Information to database
 
@@ -100,13 +100,13 @@ git clone https://github.com/kodekloudhub/learning-app-ecommerce.git /var/www/ht
 
 5. Update index.php
 
-Update [index.php](https://github.com/kodekloudhub/learning-app-ecommerce/blob/13b6e9ddc867eff30368c7e4f013164a85e2dccb/index.php#L107) file to connect to the right database server. In this case `localhost` since the database is on the same server.
+Update [index.php](https://github.com/techkedgeconnect/tec-php-ecommerce-app/blob/13b6e9ddc867eff30368c7e4f013164a85e2dccb/index.php#L107) file to connect to the right database server. In this case `localhost` since the database is on the same server.
 
 ```
 sudo sed -i 's/172.20.1.101/localhost/g' /var/www/html/index.php
 
               <?php
-                        $link = mysqli_connect('172.20.1.101', 'ecomuser', 'ecompassword', 'ecomdb');
+                        $link = mysqli_connect('172.20.1.101', 'teccode', teccode123', 'ecomdb');
                         if ($link) {
                         $res = mysqli_query($link, "select * from products;");
                         while ($row = mysqli_fetch_assoc($res)) { ?>
